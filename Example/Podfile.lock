@@ -1,5 +1,5 @@
 PODS:
-  - HitPay-iOS-SDK (0.1.0):
+  - HitPay-iOS-SDK (0.1.1):
     - StripeTerminal (~> 2.0)
   - StripeTerminal (2.0.1)
 
@@ -12,7 +12,7 @@ SPEC REPOS:
     - StripeTerminal
 
 SPEC CHECKSUMS:
-  HitPay-iOS-SDK: 76406c44fc629c00cb51d48d3e5bf1d477e4a19f
+  HitPay-iOS-SDK: 7410a82b5c771dfaa00fe3fb0de0580387564ae1
   StripeTerminal: c0f7f64bdd1505d3133f27b4e03b9a43452e710c
 
 PODFILE CHECKSUM: c382096c2a5d7fa6b7592a14a813c9f22a83f9a5
