@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'HitPay-iOS-SDK'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of HitPay-iOS-SDK.'
+  s.summary          = 'HitPay-iOS-SDK.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -21,22 +21,17 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/1bannamgiauten/HitPay-iOS-SDK'
+  s.homepage         = 'https://github.com/hit-pay/ios-sdk-example'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { '1bannamgiauten' => 'tuannguyenanh177@gmail.com' }
-  s.source           = { :git => 'https://github.com/1bannamgiauten/HitPay-iOS-SDK.git', :tag => s.version.to_s }
+  s.author           = { 'HITPAY PAYMENT SOLUTIONS PTE LTD' => 'tuannguyenanh177@gmail.com' }
+  s.source           = { :git => 'https://github.com/hit-pay/ios-sdk-example.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '9.0'
+  s.platform = :ios
+  s.swift_version = '5.0'
+  s.ios.deployment_target  = '11.0'
 
-  s.source_files = 'HitPay-iOS-SDK/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'HitPay-iOS-SDK' => ['HitPay-iOS-SDK/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.vendored_frameworks = 'HitPay-iOS-SDK/HitPay_iOS_SDK.xcframework'
+  s.dependency 'StripeTerminal', '~> 2.0'
 end
