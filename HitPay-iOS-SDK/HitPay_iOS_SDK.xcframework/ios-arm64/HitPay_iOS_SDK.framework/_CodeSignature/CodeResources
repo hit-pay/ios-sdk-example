@@ -10,7 +10,7 @@
 		</data>
 		<key>CreditCardReaderCell.nib</key>
 		<data>
-		l7vD/X4hsHXF96J7zmz89G8jB5E=
+		gaCbJvE+mRC4dXDB2vy7Z5mZHGw=
 		</data>
 		<key>Headers/HitPay_iOS_SDK-Swift.h</key>
 		<data>
@@ -22,11 +22,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		iZZfZJ5azAH0tmmOihE/bCRILuk=
+		HZclWSRbrLAIBqQROPJx+QXCa68=
 		</data>
 		<key>Main.storyboardc/ConnectReaderViewController.nib</key>
 		<data>
-		LR1U/sBkcDpwlyj1/70Lj6uOLBw=
+		qI+j74kUOsyC+gTyetnoY2+dkH4=
 		</data>
 		<key>Main.storyboardc/Info.plist</key>
 		<data>
@@ -34,7 +34,7 @@
 		</data>
 		<key>Main.storyboardc/o1Z-yr-7By-view-QA3-oM-Xhh.nib</key>
 		<data>
-		syOZY5sK5H3il5piZoKTM9W+Pjk=
+		Edv/xIJ30n1yoOgDfNQCr50O6p4=
 		</data>
 		<key>Modules/HitPay_iOS_SDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
@@ -86,7 +86,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			rmNq9jzF+pLZ68vX6gzGyHxpmyA3uMLKJz/RJcTKfrs=
+			/Xclr3XGIRfAGk9USrkK4cUNSW9XxwktGlwQBu+tCrw=
 			</data>
 		</dict>
 		<key>Headers/HitPay_iOS_SDK-Swift.h</key>
@@ -107,7 +107,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			QAWZauVnybCLRl671uEd81xv+u1KaE383TxamO98ge4=
+			o7FggLwTmEg7dk0/GDQwv5RJU0FNKFvhcHB7A+Bxst8=
 			</data>
 		</dict>
 		<key>Main.storyboardc/Info.plist</key>
@@ -121,7 +121,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			b4bskPWikKha1yRX6jhXj+vSM+Ro4rqOCMbzeb9K0zU=
+			z50LYMgkCqTeFfTmmqSE4aa2+x/RcDWFKEB0nDrsrqE=
 			</data>
 		</dict>
 		<key>Modules/HitPay_iOS_SDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
