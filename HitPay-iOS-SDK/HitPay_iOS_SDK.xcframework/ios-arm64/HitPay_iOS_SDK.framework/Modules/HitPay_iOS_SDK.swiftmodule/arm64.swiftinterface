@@ -364,6 +364,7 @@ public typealias HitPayRefundListener = (Swift.Bool, Swift.String?) -> Swift.Voi
 @_hasMissingDesignatedInitializers final public class HitPay {
   public static let shared: HitPay_iOS_SDK.HitPay
   final public func setEnv(isProd: Swift.Bool)
+  final public func setTerminal(simulated: Swift.Bool)
   final public func initiateAuthentication(from vc: UIKit.UIViewController, completion: @escaping HitPay_iOS_SDK.HitPayAuthenticationListener)
   final public func initiateTerminalSetup(from vc: UIKit.UIViewController, completion: @escaping HitPay_iOS_SDK.HitPayTerminalListener)
   final public func makeTerminalPayment(amount: Swift.Double, currency: Swift.String, completion: @escaping HitPay_iOS_SDK.HitPayTerminalChargeListener)
