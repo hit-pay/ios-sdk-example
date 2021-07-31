@@ -12,10 +12,12 @@ import HitPay_iOS_SDK
 class ViewController: UIViewController {
 
   @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+  @IBOutlet weak var simulatedSwitch: UISwitch!
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    HitPay.shared.setTerminal(simulated: false)
     self.stopLoading()
   }
 
@@ -33,6 +35,11 @@ class ViewController: UIViewController {
     let alert = UIAlertController(title: title, message: text, preferredStyle: .alert)
     alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
     self.present(alert, animated: true, completion: nil)
+  }
+
+  @IBAction func switchChanged(_ sender: Any) {
+    let simulated = self.simulatedSwitch.isOn
+    HitPay.shared.setTerminal(simulated: simulated)
   }
 
   @IBAction func loginButtonPressed(_ sender: Any) {
