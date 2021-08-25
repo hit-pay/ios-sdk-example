@@ -1,6 +1,6 @@
 # HitPay iOS SDK (Point-Of-Sale Only)
 
-[![CI Status](https://img.shields.io/travis/1bannamgiauten/HitPay-iOS-SDK.svg?style=flat)](https://travis-ci.org/1bannamgiauten/HitPay-iOS-SDK)
+[![CI Status](https://img.shields.io/travis/tuannguyenanh177/HitPay-iOS-SDK.svg?style=flat)](https://travis-ci.org/tuannguyenanh177/HitPay-iOS-SDK)
 [![Version](https://img.shields.io/cocoapods/v/HitPay-iOS-SDK.svg?style=flat)](https://cocoapods.org/pods/HitPay-iOS-SDK)
 [![License](https://img.shields.io/cocoapods/l/HitPay-iOS-SDK.svg?style=flat)](https://cocoapods.org/pods/HitPay-iOS-SDK)
 [![Platform](https://img.shields.io/cocoapods/p/HitPay-iOS-SDK.svg?style=flat)](https://cocoapods.org/pods/HitPay-iOS-SDK)
@@ -32,11 +32,18 @@ it, simply add the following line to your Podfile:
 pod 'HitPay-iOS-SDK'
 ```
 
+### Set Environment
+
+```swift
+// AppDelegate.swift
+HitPay.shared.setEnv(isProd: false)
+```
+
 ### Authentication
 
 ```swift
 HitPay.shared.initiateAuthentication(from: self) { [weak self] in
-      // Authentication done
+  // Authentication done
 }
 ```
 
@@ -47,7 +54,7 @@ HitPay.shared.initiateAuthentication(from: self) { [weak self] in
 HitPay.shared.setTerminal(simulated: false)
 
 HitPay.shared.initiateTerminalSetup(from: self) { [weak self] in
-		// Setup completed
+	// Setup completed
 }
 
 ```
@@ -56,12 +63,11 @@ HitPay.shared.initiateTerminalSetup(from: self) { [weak self] in
 
 ```swift
 HitPay.shared.makeTerminalPayment(amount: amount, currency: "sgd") { success, error in
-        
-        if success {
-          // Successful payment
-        } else {
-          // Faied. Check for error
-        }
+  if success {
+    // Successful payment
+  } else {
+    // Faied. Check for error
+  }
 }
 ```
 
@@ -69,7 +75,7 @@ HitPay.shared.makeTerminalPayment(amount: amount, currency: "sgd") { success, er
 
 ```swift
 HitPay.shared.makePayNowPayment(amount: amount, currency: "sgd") { qrCode, success, error in
-        // "qrCode" represents the string value of the QRCode to be displayed.
+  // "qrCode" represents the string value of the QRCode to be displayed.
 }
 ```
 
@@ -77,7 +83,7 @@ HitPay.shared.makePayNowPayment(amount: amount, currency: "sgd") { qrCode, succe
 
 ```swift
 HitPay.shared.refundCharge(charge_id: charge_id) { success, error in
-		// Full refund done for the given charge id
+	// Full refund done for the given charge id
 }
 ```
 
@@ -85,7 +91,7 @@ HitPay.shared.refundCharge(charge_id: charge_id) { success, error in
 ## Contact
 Support: support@hit-pay.com
 
-Author: 1bannamgiauten
+Author: tuannguyenanh177@gmail.com
 
 ## License
 
