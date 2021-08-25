@@ -83,7 +83,7 @@ HitPay.shared.makePayNowPayment(amount: amount, currency: "sgd") { qrCode, succe
 
 ```swift
 HitPay.shared.refundCharge(charge_id: charge_id) { success, error in
-	// Full refund done for the given charge id
+  // Full refund done for the given charge id
 }
 ```
 
