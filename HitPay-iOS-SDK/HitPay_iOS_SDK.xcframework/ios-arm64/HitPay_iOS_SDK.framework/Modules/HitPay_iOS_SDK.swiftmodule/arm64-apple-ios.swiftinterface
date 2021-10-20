@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
+// swift-compiler-version: Apple Swift version 5.5 (swiftlang-1300.0.31.1 clang-1300.0.29.1)
 // swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name HitPay_iOS_SDK
 import Foundation
 @_exported import HitPay_iOS_SDK
@@ -7,6 +7,7 @@ import Security
 import StripeTerminal
 import Swift
 import UIKit
+import _Concurrency
 public enum SwiftyJSONError : Swift.Int, Swift.Error {
   case unsupportedType
   case indexOutOfBounds
@@ -20,7 +21,7 @@ public enum SwiftyJSONError : Swift.Int, Swift.Error {
     get
   }
 }
-extension SwiftyJSONError : Foundation.CustomNSError {
+extension HitPay_iOS_SDK.SwiftyJSONError : Foundation.CustomNSError {
   public static var errorDomain: Swift.String {
     get
   }
@@ -78,7 +79,7 @@ public enum Index<T> : Swift.Comparable {
 }
 public typealias JSONIndex = HitPay_iOS_SDK.Index<HitPay_iOS_SDK.JSON>
 public typealias JSONRawIndex = HitPay_iOS_SDK.Index<Any>
-extension JSON : Swift.Collection {
+extension HitPay_iOS_SDK.JSON : Swift.Collection {
   public typealias Index = HitPay_iOS_SDK.JSONRawIndex
   public var startIndex: HitPay_iOS_SDK.JSON.Index {
     get
@@ -102,17 +103,17 @@ public enum JSONKey {
 public protocol JSONSubscriptType {
   var jsonKey: HitPay_iOS_SDK.JSONKey { get }
 }
-extension Int : HitPay_iOS_SDK.JSONSubscriptType {
+extension Swift.Int : HitPay_iOS_SDK.JSONSubscriptType {
   public var jsonKey: HitPay_iOS_SDK.JSONKey {
     get
   }
 }
-extension String : HitPay_iOS_SDK.JSONSubscriptType {
+extension Swift.String : HitPay_iOS_SDK.JSONSubscriptType {
   public var jsonKey: HitPay_iOS_SDK.JSONKey {
     get
   }
 }
-extension JSON {
+extension HitPay_iOS_SDK.JSON {
   public subscript(path: [HitPay_iOS_SDK.JSONSubscriptType]) -> HitPay_iOS_SDK.JSON {
     get
     set
@@ -122,7 +123,7 @@ extension JSON {
     set
   }
 }
-extension JSON : Swift.ExpressibleByStringLiteral {
+extension HitPay_iOS_SDK.JSON : Swift.ExpressibleByStringLiteral {
   public init(stringLiteral value: Swift.StringLiteralType)
   public init(extendedGraphemeClusterLiteral value: Swift.StringLiteralType)
   public init(unicodeScalarLiteral value: Swift.StringLiteralType)
@@ -130,28 +131,28 @@ extension JSON : Swift.ExpressibleByStringLiteral {
   public typealias StringLiteralType = Swift.StringLiteralType
   public typealias UnicodeScalarLiteralType = Swift.StringLiteralType
 }
-extension JSON : Swift.ExpressibleByIntegerLiteral {
+extension HitPay_iOS_SDK.JSON : Swift.ExpressibleByIntegerLiteral {
   public init(integerLiteral value: Swift.IntegerLiteralType)
   public typealias IntegerLiteralType = Swift.IntegerLiteralType
 }
-extension JSON : Swift.ExpressibleByBooleanLiteral {
+extension HitPay_iOS_SDK.JSON : Swift.ExpressibleByBooleanLiteral {
   public init(booleanLiteral value: Swift.BooleanLiteralType)
   public typealias BooleanLiteralType = Swift.BooleanLiteralType
 }
-extension JSON : Swift.ExpressibleByFloatLiteral {
+extension HitPay_iOS_SDK.JSON : Swift.ExpressibleByFloatLiteral {
   public init(floatLiteral value: Swift.FloatLiteralType)
   public typealias FloatLiteralType = Swift.FloatLiteralType
 }
-extension JSON : Swift.ExpressibleByDictionaryLiteral {
+extension HitPay_iOS_SDK.JSON : Swift.ExpressibleByDictionaryLiteral {
   public init(dictionaryLiteral elements: (Swift.String, Any)...)
   public typealias Key = Swift.String
   public typealias Value = Any
 }
-extension JSON : Swift.ExpressibleByArrayLiteral {
+extension HitPay_iOS_SDK.JSON : Swift.ExpressibleByArrayLiteral {
   public init(arrayLiteral elements: Any...)
   public typealias ArrayLiteralElement = Any
 }
-extension JSON : Swift.RawRepresentable {
+extension HitPay_iOS_SDK.JSON : Swift.RawRepresentable {
   public init?(rawValue: Any)
   public var rawValue: Any {
     get
@@ -161,7 +162,7 @@ extension JSON : Swift.RawRepresentable {
   public func rawString(_ options: [HitPay_iOS_SDK.writingOptionsKeys : Any]) -> Swift.String?
   public typealias RawValue = Any
 }
-extension JSON : Swift.CustomStringConvertible, Swift.CustomDebugStringConvertible {
+extension HitPay_iOS_SDK.JSON : Swift.CustomStringConvertible, Swift.CustomDebugStringConvertible {
   public var description: Swift.String {
     get
   }
@@ -169,7 +170,7 @@ extension JSON : Swift.CustomStringConvertible, Swift.CustomDebugStringConvertib
     get
   }
 }
-extension JSON {
+extension HitPay_iOS_SDK.JSON {
   public var array: [HitPay_iOS_SDK.JSON]? {
     get
   }
@@ -181,7 +182,7 @@ extension JSON {
     set
   }
 }
-extension JSON {
+extension HitPay_iOS_SDK.JSON {
   public var dictionary: [Swift.String : HitPay_iOS_SDK.JSON]? {
     get
   }
@@ -193,7 +194,7 @@ extension JSON {
     set
   }
 }
-extension JSON {
+extension HitPay_iOS_SDK.JSON {
   public var bool: Swift.Bool? {
     get
     set
@@ -203,7 +204,7 @@ extension JSON {
     set
   }
 }
-extension JSON {
+extension HitPay_iOS_SDK.JSON {
   public var string: Swift.String? {
     get
     set
@@ -213,7 +214,7 @@ extension JSON {
     set
   }
 }
-extension JSON {
+extension HitPay_iOS_SDK.JSON {
   public var number: Foundation.NSNumber? {
     get
     set
@@ -223,20 +224,20 @@ extension JSON {
     set
   }
 }
-extension JSON {
+extension HitPay_iOS_SDK.JSON {
   public var null: Foundation.NSNull? {
     get
     set
   }
   public func exists() -> Swift.Bool
 }
-extension JSON {
+extension HitPay_iOS_SDK.JSON {
   public var url: Foundation.URL? {
     get
     set
   }
 }
-extension JSON {
+extension HitPay_iOS_SDK.JSON {
   public var double: Swift.Double? {
     get
     set
@@ -334,7 +335,7 @@ extension JSON {
     set
   }
 }
-extension JSON : Swift.Comparable {
+extension HitPay_iOS_SDK.JSON : Swift.Comparable {
 }
 public func == (lhs: HitPay_iOS_SDK.JSON, rhs: HitPay_iOS_SDK.JSON) -> Swift.Bool
 public func <= (lhs: HitPay_iOS_SDK.JSON, rhs: HitPay_iOS_SDK.JSON) -> Swift.Bool
@@ -352,23 +353,24 @@ public enum writingOptionsKeys {
     get
   }
 }
-extension JSON : Swift.Codable {
+extension HitPay_iOS_SDK.JSON : Swift.Codable {
   public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
 }
 public typealias HitPayAuthenticationListener = () -> Swift.Void
 public typealias HitPayTerminalListener = () -> Swift.Void
-public typealias HitPayTerminalChargeListener = (Swift.Bool, Swift.String?) -> Swift.Void
-public typealias HitPayPayNowListener = (Swift.String?, Swift.Bool, Swift.String?) -> Swift.Void
-public typealias HitPayRefundListener = (Swift.Bool, Swift.String?) -> Swift.Void
+public typealias HitPayTerminalChargeListener = (_ success: Swift.Bool, _ error: Swift.String?) -> Swift.Void
+public typealias HitPayPayNowListener = (_ qrCode: Swift.String?, _ qrImage: UIKit.UIImage?, _ success: Swift.Bool, _ error: Swift.String?) -> Swift.Void
+public typealias HitPayRefundListener = (_ success: Swift.Bool, _ error: Swift.String?) -> Swift.Void
 @_hasMissingDesignatedInitializers final public class HitPay {
   public static let shared: HitPay_iOS_SDK.HitPay
   final public func setEnv(isProd: Swift.Bool)
   final public func setTerminal(simulated: Swift.Bool)
   final public func initiateAuthentication(from vc: UIKit.UIViewController, completion: @escaping HitPay_iOS_SDK.HitPayAuthenticationListener)
+  final public func signOut()
   final public func initiateTerminalSetup(from vc: UIKit.UIViewController, completion: @escaping HitPay_iOS_SDK.HitPayTerminalListener)
   final public func makeTerminalPayment(amount: Swift.Double, currency: Swift.String, completion: @escaping HitPay_iOS_SDK.HitPayTerminalChargeListener)
-  final public func makePayNowPayment(amount: Swift.Double, currency: Swift.String, completion: @escaping HitPay_iOS_SDK.HitPayPayNowListener)
+  final public func makePayNowPayment(amount: Swift.Double, currency: Swift.String, generateImage: Swift.Bool = false, completion: @escaping HitPay_iOS_SDK.HitPayPayNowListener)
   final public func refundCharge(charge_id: Swift.String, completion: @escaping HitPay_iOS_SDK.HitPayRefundListener)
   @objc deinit
 }
@@ -393,11 +395,11 @@ open class KeychainSwift {
   open func clear() -> Swift.Bool
   @objc deinit
 }
-extension UIView {
+extension UIKit.UIView {
   @discardableResult
-  public func anchorToSuperviewAnchors(withInsets insets: UIKit.UIEdgeInsets = UIEdgeInsets.zero) -> (top: UIKit.NSLayoutConstraint, leading: UIKit.NSLayoutConstraint, trailing: UIKit.NSLayoutConstraint, bottom: UIKit.NSLayoutConstraint)
-  public func anchor(to layoutGuide: UIKit.UILayoutGuide, withInsets insets: UIKit.UIEdgeInsets = .zero)
-  public func constrainInsideSuperview(withInsets insets: UIKit.UIEdgeInsets = .zero)
+  @_Concurrency.MainActor(unsafe) public func anchorToSuperviewAnchors(withInsets insets: UIKit.UIEdgeInsets = UIEdgeInsets.zero) -> (top: UIKit.NSLayoutConstraint, leading: UIKit.NSLayoutConstraint, trailing: UIKit.NSLayoutConstraint, bottom: UIKit.NSLayoutConstraint)
+  @_Concurrency.MainActor(unsafe) public func anchor(to layoutGuide: UIKit.UILayoutGuide, withInsets insets: UIKit.UIEdgeInsets = .zero)
+  @_Concurrency.MainActor(unsafe) public func constrainInsideSuperview(withInsets insets: UIKit.UIEdgeInsets = .zero)
 }
 public enum KeychainSwiftAccessOptions {
   case accessibleWhenUnlocked
@@ -439,19 +441,19 @@ public struct KeychainSwiftConstants {
     get
   }
 }
-extension DeviceType : Swift.CustomStringConvertible {
+extension StripeTerminal.DeviceType : Swift.CustomStringConvertible {
   public var description: Swift.String {
     get
   }
 }
-extension DiscoveryMethod : Swift.CustomStringConvertible {
+extension StripeTerminal.DiscoveryMethod : Swift.CustomStringConvertible {
   public var description: Swift.String {
     get
   }
 }
-extension DeviceType : Swift.Codable {
+extension StripeTerminal.DeviceType : Swift.Codable {
 }
-extension DiscoveryMethod : Swift.Codable {
+extension StripeTerminal.DiscoveryMethod : Swift.Codable {
 }
 extension HitPay_iOS_SDK.SwiftyJSONError : Swift.Equatable {}
 extension HitPay_iOS_SDK.SwiftyJSONError : Swift.Hashable {}

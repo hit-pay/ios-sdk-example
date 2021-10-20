@@ -6,15 +6,15 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		YmNJ7Bny+GPRWOSufNXsSl2uyvg=
+		A++tVh0BL9d/PiP8Cr9RhHlkQMY=
 		</data>
 		<key>CreditCardReaderCell.nib</key>
 		<data>
-		g5f7vcWuT61Vkt0+2/2hGr+voTs=
+		a1fSvUZpVi1TVPp9fjwAfRgkK3Y=
 		</data>
 		<key>Headers/HitPay_iOS_SDK-Swift.h</key>
 		<data>
-		R2L0nmKEgKaGRjQ2CF37ouz0dlU=
+		TVcgiER8H86v4zJHGvS0k3KoZH0=
 		</data>
 		<key>Headers/HitPay_iOS_SDK.h</key>
 		<data>
@@ -22,11 +22,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		X756ryFtVPH17Mzx76alp6lO0vc=
+		3PH3w6oSF7K4sOMtmwFTNc6dW4M=
 		</data>
 		<key>Main.storyboardc/ConnectReaderViewController.nib</key>
 		<data>
-		lly3fn60fYOkOEImriJc3ypisIw=
+		RmpiLC3zu7/uJHtJfEfKnyrv/Dk=
 		</data>
 		<key>Main.storyboardc/Info.plist</key>
 		<data>
@@ -34,55 +34,55 @@
 		</data>
 		<key>Main.storyboardc/o1Z-yr-7By-view-QA3-oM-Xhh.nib</key>
 		<data>
-		bTzEMiTzsWj0/ne4GTACmYhIllc=
+		6enyhNmZIHjD1AlodOlIWaeHz14=
 		</data>
 		<key>Modules/HitPay_iOS_SDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		9irgIO86FRK2/0Jnv4E74NtNsJA=
+		Eaai3R2xDrRS0jsWbuQit52/Gx0=
 		</data>
 		<key>Modules/HitPay_iOS_SDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		jWwU/jUHnCUZ1MkaNuMDcI0GGe0=
+		TBIWfHoqcma1QGCXnhlCn2r4qpI=
 		</data>
 		<key>Modules/HitPay_iOS_SDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		VksVHWoOl9QV7tXcN+Kihh8jx3M=
+		I6AeA5XSnUnQhfGTBwj98ZLVJYk=
 		</data>
 		<key>Modules/HitPay_iOS_SDK.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		9irgIO86FRK2/0Jnv4E74NtNsJA=
+		Eaai3R2xDrRS0jsWbuQit52/Gx0=
 		</data>
 		<key>Modules/HitPay_iOS_SDK.swiftmodule/arm64.swiftinterface</key>
 		<data>
-		jWwU/jUHnCUZ1MkaNuMDcI0GGe0=
+		TBIWfHoqcma1QGCXnhlCn2r4qpI=
 		</data>
 		<key>Modules/HitPay_iOS_SDK.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		VksVHWoOl9QV7tXcN+Kihh8jx3M=
+		I6AeA5XSnUnQhfGTBwj98ZLVJYk=
 		</data>
 		<key>Modules/HitPay_iOS_SDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		eVLVlp6fTAHXKFDBJ9oUo0o7rUE=
+		Mc2a50qEjrSUJFjIc+w4cNTZK0Y=
 		</data>
 		<key>Modules/HitPay_iOS_SDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		/nS/lJYzlsqEMuxNU9QmaV42eYM=
+		eWjL3RGf3+y02xmoZ8/pRNKVosA=
 		</data>
 		<key>Modules/HitPay_iOS_SDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		nI8SoHbB7A6Z4I5qUf8u99DYXGE=
+		dJVjDmb29vUA3US5oBPYbQojQq0=
 		</data>
 		<key>Modules/HitPay_iOS_SDK.swiftmodule/x86_64.swiftdoc</key>
 		<data>
-		eVLVlp6fTAHXKFDBJ9oUo0o7rUE=
+		Mc2a50qEjrSUJFjIc+w4cNTZK0Y=
 		</data>
 		<key>Modules/HitPay_iOS_SDK.swiftmodule/x86_64.swiftinterface</key>
 		<data>
-		/nS/lJYzlsqEMuxNU9QmaV42eYM=
+		eWjL3RGf3+y02xmoZ8/pRNKVosA=
 		</data>
 		<key>Modules/HitPay_iOS_SDK.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		nI8SoHbB7A6Z4I5qUf8u99DYXGE=
+		dJVjDmb29vUA3US5oBPYbQojQq0=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -103,21 +103,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Fp37IOPSadg4XEHSXcPz9xMlNv3HrWQfmmC6YO5Fmb0=
+			nC1Ddv7/KYG2JpeTDA+VltR+y1f/lL1xAcE4pGrsnrw=
 			</data>
 		</dict>
 		<key>CreditCardReaderCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			PjLpcAi0Y4ozHQEfi7NZcihKpUoGzMF5Hu2KKnP2juI=
+			XpYRW8GuSaBcblxx0IuRa81LveNS6B4hxSXwtw8xs58=
 			</data>
 		</dict>
 		<key>Headers/HitPay_iOS_SDK-Swift.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			coHAlN6IkEpi8TPTO/DeWUul06oBh6VBepmvgNf3MJk=
+			3zohFuM8FwCc2yHQKThKBEIerK6g9kefrH+sVKj5PYU=
 			</data>
 		</dict>
 		<key>Headers/HitPay_iOS_SDK.h</key>
@@ -131,7 +131,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			auARp43ChrKG8S8Rc6updjNwXjJXdE+bqgqg4sTi2BY=
+			5gkl3Oi3zEUZMVPXi9m8HNprKZfyKSmdnU3yV4Vh0lA=
 			</data>
 		</dict>
 		<key>Main.storyboardc/Info.plist</key>
@@ -145,91 +145,91 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			9tSp0uf+kriAaMuX7eS4s7Sx6vjaPuztlT7vInO2IrA=
+			2rkaAs2nGwBWgSVpLs7RL/7P4BX//okLQlEZas83/fE=
 			</data>
 		</dict>
 		<key>Modules/HitPay_iOS_SDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			rKSx2QXnL/VMD/VpVdNlFSbwyrDcd/paPc+Ge7cXpZ8=
+			+x9GczoU5k0v3Lx1czvDDT++F6rQlFJjyYuu2HMBkU0=
 			</data>
 		</dict>
 		<key>Modules/HitPay_iOS_SDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			jPbJPL8sCFcma46kpVe5O0z7SWikvValOsJwarSyf4I=
+			7G39QR5FDgA4vPjJfjcKaCAs2rXnQwzA2fq6obpUk9U=
 			</data>
 		</dict>
 		<key>Modules/HitPay_iOS_SDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			/6QkpNWY6LDYvTPFvfoIA9uWkRXydvbWaw5xIKRsIKY=
+			V9m3Z2fNGNqnsaaHqevvIODxYltJayz8SeXXaZwf+Gs=
 			</data>
 		</dict>
 		<key>Modules/HitPay_iOS_SDK.swiftmodule/arm64.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			rKSx2QXnL/VMD/VpVdNlFSbwyrDcd/paPc+Ge7cXpZ8=
+			+x9GczoU5k0v3Lx1czvDDT++F6rQlFJjyYuu2HMBkU0=
 			</data>
 		</dict>
 		<key>Modules/HitPay_iOS_SDK.swiftmodule/arm64.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			jPbJPL8sCFcma46kpVe5O0z7SWikvValOsJwarSyf4I=
+			7G39QR5FDgA4vPjJfjcKaCAs2rXnQwzA2fq6obpUk9U=
 			</data>
 		</dict>
 		<key>Modules/HitPay_iOS_SDK.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			/6QkpNWY6LDYvTPFvfoIA9uWkRXydvbWaw5xIKRsIKY=
+			V9m3Z2fNGNqnsaaHqevvIODxYltJayz8SeXXaZwf+Gs=
 			</data>
 		</dict>
 		<key>Modules/HitPay_iOS_SDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			O9L7nJ/vQWfKjT7rNaIGs4WFSfXxULWoFxnFwwapjGY=
+			nqzB4xZK+3WBwd8TLdjZEtAYdprWKXALvpzc5jHRA0I=
 			</data>
 		</dict>
 		<key>Modules/HitPay_iOS_SDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			useYUMDlBn/u07YIE426VcXfyWe91iOJ6PQ6nC/8UKw=
+			otKvXW9o1yOrluHtSeYDs9mOpYRWw6krl7ttIBDaT80=
 			</data>
 		</dict>
 		<key>Modules/HitPay_iOS_SDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			sYfLaMnnA5LGGGq2xLJ4lQOkB3IE+yfLC7byGuvSqb8=
+			J3kKhXyBKEivh1cnARfUleT6PNTNDZDUW8OYqPH++xo=
 			</data>
 		</dict>
 		<key>Modules/HitPay_iOS_SDK.swiftmodule/x86_64.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			O9L7nJ/vQWfKjT7rNaIGs4WFSfXxULWoFxnFwwapjGY=
+			nqzB4xZK+3WBwd8TLdjZEtAYdprWKXALvpzc5jHRA0I=
 			</data>
 		</dict>
 		<key>Modules/HitPay_iOS_SDK.swiftmodule/x86_64.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			useYUMDlBn/u07YIE426VcXfyWe91iOJ6PQ6nC/8UKw=
+			otKvXW9o1yOrluHtSeYDs9mOpYRWw6krl7ttIBDaT80=
 			</data>
 		</dict>
 		<key>Modules/HitPay_iOS_SDK.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			sYfLaMnnA5LGGGq2xLJ4lQOkB3IE+yfLC7byGuvSqb8=
+			J3kKhXyBKEivh1cnARfUleT6PNTNDZDUW8OYqPH++xo=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
