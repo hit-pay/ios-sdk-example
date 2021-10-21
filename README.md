@@ -45,6 +45,9 @@ HitPay.shared.setEnv(isProd: false)
 HitPay.shared.initiateAuthentication(from: self) { [weak self] in
   // Authentication done
 }
+
+// Sign out
+HitPay.shared.signOut()
 ```
 
 ### **Connect Card Reader**
@@ -74,8 +77,9 @@ HitPay.shared.makeTerminalPayment(amount: amount, currency: "sgd") { success, er
 ### Accept PayNow QR
 
 ```swift
-HitPay.shared.makePayNowPayment(amount: amount, currency: "sgd") { qrCode, success, error in
+HitPay.shared.makePayNowPayment(amount: amount, currency: "sgd", generateImage: true) { qrCode, qrImage, success, error in
   // "qrCode" represents the string value of the QRCode to be displayed.
+  // "qrImage" represents UIImage of the QRCode if generateImage set to true
 }
 ```
 

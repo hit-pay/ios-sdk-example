@@ -1,10 +1,10 @@
 PODS:
-  - HitPay-iOS-SDK (0.1.3):
+  - HitPay-iOS-SDK (0.1.4):
     - StripeTerminal (~> 2.0)
-  - StripeTerminal (2.1.0)
+  - StripeTerminal (2.2.0)
 
 DEPENDENCIES:
-  - HitPay-iOS-SDK (~> 0.1.3)
+  - HitPay-iOS-SDK (~> 0.1.4)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -12,9 +12,9 @@ SPEC REPOS:
     - StripeTerminal
 
 SPEC CHECKSUMS:
-  HitPay-iOS-SDK: 4445d94f79b35fd147212a830d8b552d20edd3f9
-  StripeTerminal: 0bdf7b4bc6a9ea081b5856ca0ee63ac9ee5afa53
+  HitPay-iOS-SDK: 9d45aa840a3f70ecf9a1103bba844aa956636833
+  StripeTerminal: d06c83ebcc000de142df04ad16713b08bdc0b7b9
 
-PODFILE CHECKSUM: ea9f99dc02310c80f0ddd1e0a30577f08e1ca106
+PODFILE CHECKSUM: 26edd26e224701b73075b3d386343b0df4ddd54d
 
-COCOAPODS: 1.10.2
+COCOAPODS: 1.11.2

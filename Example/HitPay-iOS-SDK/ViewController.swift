@@ -13,7 +13,9 @@ class ViewController: UIViewController {
 
   @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
   @IBOutlet weak var simulatedSwitch: UISwitch!
-
+  @IBOutlet weak var qrImageView: UIImageView!
+  @IBOutlet weak var qrImageSwitch: UISwitch!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -75,19 +77,27 @@ class ViewController: UIViewController {
   }
 
   @IBAction func paynowButtonPressed(_ sender: Any) {
+    let generateQrImage = self.qrImageSwitch.isOn
     let alert = UIAlertController(title: "Amount", message: "Enter amount:", preferredStyle: .alert)
     var textField: UITextField?
     alert.addTextField(configurationHandler: { textField = $0 })
     alert.addAction(UIAlertAction(title: "Pay", style: .default, handler: { [weak self] _ in
       let amount = Double(textField?.text ?? "2") ?? 2
       self?.startLoading()
-      HitPay.shared.makePayNowPayment(amount: amount, currency: "sgd") { qrCode, success, error in
+      HitPay.shared.makePayNowPayment(amount: amount, currency: "sgd", generateImage: generateQrImage) { qrCode, qrImage, success, error in
         if let qrCode = qrCode, success == false && error == nil {
-          self?.alert(title: "QR CODE", text: qrCode)
+          if let qrImage = qrImage {
+            self?.qrImageView.image = qrImage
+            self?.qrImageView.isHidden = false
+          } else {
+            self?.alert(title: "QR CODE", text: qrCode)
+          }
         } else if success {
+          self?.qrImageView.isHidden = true
           self?.stopLoading()
           self?.alert(title: "Success: \(success)", text: "")
         } else if let error = error {
+          self?.qrImageView.isHidden = true
           self?.stopLoading()
           self?.alert(title: "Error", text: error)
         }
@@ -114,5 +124,11 @@ class ViewController: UIViewController {
     }))
     self.present(alert, animated: true, completion: nil)
   }
+
+  @IBAction func logoutButtonPressed(_ sender: Any) {
+    HitPay.shared.signOut()
+    self.alert(title: "Sign Out", text: "Success")
+  }
+  
 }
 

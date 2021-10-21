@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="8LA-0k-48d">
-                                <rect key="frame" x="20" y="201.5" width="335" height="264"/>
+                                <rect key="frame" x="20" y="93.5" width="335" height="320"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Va-3u-eTk">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="40"/>
@@ -87,20 +87,45 @@
                                             <action selector="terminalPaymentPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="nT9-3N-Y4J"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Bf-oN-jVw">
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="HBB-ys-w2K">
                                         <rect key="frame" x="0.0" y="168" width="335" height="40"/>
-                                        <color key="backgroundColor" systemColor="systemRedColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="0Oo-FH-ZMv"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                        <state key="normal" title="Make PayNow Payment">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="paynowButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="bh9-k7-xa3"/>
-                                        </connections>
-                                    </button>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Bf-oN-jVw">
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="40"/>
+                                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="0Oo-FH-ZMv"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                <state key="normal" title="Make PayNow Payment">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="paynowButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="bh9-k7-xa3"/>
+                                                </connections>
+                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="y5H-RE-agN">
+                                                <rect key="frame" x="208" y="0.0" width="127" height="40"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QR Image?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSB-Zz-1Tc">
+                                                        <rect key="frame" x="0.0" y="11.5" width="70" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fRA-zT-dXC">
+                                                        <rect key="frame" x="78" y="4.5" width="51" height="31"/>
+                                                        <connections>
+                                                            <action selector="switchChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="NdE-4H-ZSG"/>
+                                                        </connections>
+                                                    </switch>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="fRA-zT-dXC" firstAttribute="centerY" secondItem="y5H-RE-agN" secondAttribute="centerY" id="SyW-0U-91d"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mbL-jx-Hb9">
                                         <rect key="frame" x="0.0" y="224" width="335" height="40"/>
                                         <color key="backgroundColor" systemColor="systemTealColor"/>
@@ -113,6 +138,20 @@
                                         </state>
                                         <connections>
                                             <action selector="refundButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="g7z-Wz-uDS"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R5z-wL-Uj9">
+                                        <rect key="frame" x="0.0" y="280" width="335" height="40"/>
+                                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Fnv-E2-3yg"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <state key="normal" title="Logout">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="logoutButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="j8J-ZG-NnZ"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -131,14 +170,24 @@
                                     <constraint firstItem="tGa-m9-ob3" firstAttribute="centerY" secondItem="zqk-1X-atY" secondAttribute="centerY" id="cMm-Qj-VbG"/>
                                 </constraints>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wDb-eS-MNV">
+                                <rect key="frame" x="70.5" y="433.5" width="234" height="213.5"/>
+                                <color key="backgroundColor" red="0.56470588239999997" green="0.078431372550000003" blue="0.4823529412" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="wDb-eS-MNV" secondAttribute="height" multiplier="286:261" id="cf8-MF-SN3"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BET-ef-fxP"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="BET-ef-fxP" firstAttribute="trailing" secondItem="8LA-0k-48d" secondAttribute="trailing" constant="20" id="19o-ef-xWY"/>
-                            <constraint firstItem="8LA-0k-48d" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="BRM-ZP-rfm"/>
+                            <constraint firstItem="wDb-eS-MNV" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="3Q5-Hu-w1W"/>
+                            <constraint firstItem="8LA-0k-48d" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" constant="-80" id="BRM-ZP-rfm"/>
                             <constraint firstItem="zqk-1X-atY" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="IxX-uV-c2d"/>
+                            <constraint firstItem="BET-ef-fxP" firstAttribute="bottom" secondItem="wDb-eS-MNV" secondAttribute="bottom" constant="20" id="Lwi-NN-kwy"/>
                             <constraint firstItem="8LA-0k-48d" firstAttribute="leading" secondItem="BET-ef-fxP" secondAttribute="leading" constant="20" id="ShT-H5-fPN"/>
+                            <constraint firstItem="wDb-eS-MNV" firstAttribute="top" secondItem="8LA-0k-48d" secondAttribute="bottom" constant="20" id="ZEe-Vi-dtJ"/>
                             <constraint firstItem="zqk-1X-atY" firstAttribute="leading" secondItem="BET-ef-fxP" secondAttribute="leading" id="bnW-Ll-RE2"/>
                             <constraint firstAttribute="bottom" secondItem="zqk-1X-atY" secondAttribute="bottom" id="ik3-go-Hwe"/>
                             <constraint firstItem="BET-ef-fxP" firstAttribute="trailing" secondItem="zqk-1X-atY" secondAttribute="trailing" id="isc-52-puy"/>
@@ -146,6 +195,8 @@
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="tGa-m9-ob3" id="Vxk-QP-heu"/>
+                        <outlet property="qrImageSwitch" destination="fRA-zT-dXC" id="3vm-Mb-DsG"/>
+                        <outlet property="qrImageView" destination="wDb-eS-MNV" id="nnC-sR-C4j"/>
                         <outlet property="simulatedSwitch" destination="RR9-D6-FbP" id="A4t-xF-9E9"/>
                     </connections>
                 </viewController>
@@ -164,11 +215,14 @@
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
-            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

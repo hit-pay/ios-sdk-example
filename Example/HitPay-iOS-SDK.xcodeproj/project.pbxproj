@@ -108,7 +108,7 @@
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				519BC1ED47974FF2F581FCDC /* [CP] Embed Pods Frameworks */,
+				08A302C7301173664DF672D6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -168,14 +168,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		519BC1ED47974FF2F581FCDC /* [CP] Embed Pods Frameworks */ = {
+		08A302C7301173664DF672D6 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-HitPay-iOS-SDK_Example/Pods-HitPay-iOS-SDK_Example-frameworks.sh",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/HitPay_iOS_SDK/HitPay_iOS_SDK.framework/HitPay_iOS_SDK",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/HitPay-iOS-SDK/HitPay_iOS_SDK.framework/HitPay_iOS_SDK",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/StripeTerminal/StripeTerminal.framework/StripeTerminal",
 			);
 			name = "[CP] Embed Pods Frameworks";
