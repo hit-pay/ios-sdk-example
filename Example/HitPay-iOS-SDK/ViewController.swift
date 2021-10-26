@@ -53,7 +53,7 @@ class ViewController: UIViewController {
 
   @IBAction func terminalButtonPressed(_ sender: Any) {
     HitPay.shared.initiateTerminalSetup(from: self) { [weak self] in
-      self?.alert(title: "Done", text: "initiateAuthentication")
+      self?.alert(title: "Done", text: "initiateTerminalSetup")
     }
   }
 

@@ -57,7 +57,7 @@ HitPay.shared.signOut()
 HitPay.shared.setTerminal(simulated: false)
 
 HitPay.shared.initiateTerminalSetup(from: self) { [weak self] in
-	// Setup completed
+  // Setup completed
 }
 
 ```
