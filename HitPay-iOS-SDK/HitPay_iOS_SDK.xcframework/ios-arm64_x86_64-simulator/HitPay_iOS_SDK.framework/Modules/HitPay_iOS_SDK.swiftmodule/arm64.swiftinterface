@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.5 (swiftlang-1300.0.31.1 clang-1300.0.29.1)
+// swift-compiler-version: Apple Swift version 5.5.1 (swiftlang-1300.0.31.4 clang-1300.0.29.6)
 // swift-module-flags: -target arm64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name HitPay_iOS_SDK
 import Foundation
 @_exported import HitPay_iOS_SDK
@@ -360,6 +360,7 @@ extension HitPay_iOS_SDK.JSON : Swift.Codable {
 public typealias HitPayAuthenticationListener = () -> Swift.Void
 public typealias HitPayTerminalListener = () -> Swift.Void
 public typealias HitPayTerminalChargeListener = (_ success: Swift.Bool, _ error: Swift.String?) -> Swift.Void
+public typealias HitPayTerminalCancelPaymentListener = (_ success: Swift.Bool, _ error: Swift.String?) -> Swift.Void
 public typealias HitPayPayNowListener = (_ qrCode: Swift.String?, _ qrImage: UIKit.UIImage?, _ success: Swift.Bool, _ error: Swift.String?) -> Swift.Void
 public typealias HitPayRefundListener = (_ success: Swift.Bool, _ error: Swift.String?) -> Swift.Void
 @_hasMissingDesignatedInitializers final public class HitPay {
@@ -369,6 +370,7 @@ public typealias HitPayRefundListener = (_ success: Swift.Bool, _ error: Swift.S
   final public func initiateAuthentication(from vc: UIKit.UIViewController, completion: @escaping HitPay_iOS_SDK.HitPayAuthenticationListener)
   final public func signOut()
   final public func initiateTerminalSetup(from vc: UIKit.UIViewController, completion: @escaping HitPay_iOS_SDK.HitPayTerminalListener)
+  final public func cancelTerminalPayment(completion: @escaping HitPay_iOS_SDK.HitPayTerminalCancelPaymentListener)
   final public func makeTerminalPayment(amount: Swift.Double, currency: Swift.String, completion: @escaping HitPay_iOS_SDK.HitPayTerminalChargeListener)
   final public func makePayNowPayment(amount: Swift.Double, currency: Swift.String, generateImage: Swift.Bool = false, completion: @escaping HitPay_iOS_SDK.HitPayPayNowListener)
   final public func refundCharge(charge_id: Swift.String, completion: @escaping HitPay_iOS_SDK.HitPayRefundListener)
