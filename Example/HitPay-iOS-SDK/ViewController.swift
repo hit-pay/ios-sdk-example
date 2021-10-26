@@ -15,6 +15,7 @@ class ViewController: UIViewController {
   @IBOutlet weak var simulatedSwitch: UISwitch!
   @IBOutlet weak var qrImageView: UIImageView!
   @IBOutlet weak var qrImageSwitch: UISwitch!
+  @IBOutlet weak var cancelSwitch: UISwitch!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -70,6 +71,18 @@ class ViewController: UIViewController {
           self?.alert(title: "Success: \(success)", text: "charge_id: \(error ?? ""). Copied to clipboard")
         } else {
           self?.alert(title: "Error:", text: error ?? "")
+        }
+      }
+      if self?.cancelSwitch.isOn == true {
+        // Simulate cancel terminal payment after 1s
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+          HitPay.shared.cancelTerminalPayment { success, error in
+            if success {
+              self?.alert(title: "[cancelTerminalPayment] Success: \(success)", text: "\(error ?? "")")
+            } else {
+              self?.alert(title: "[cancelTerminalPayment] Error:", text: error ?? "")
+            }
+          }
         }
       }
     }))

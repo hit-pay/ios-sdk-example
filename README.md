@@ -72,6 +72,15 @@ HitPay.shared.makeTerminalPayment(amount: amount, currency: "sgd") { success, er
     // Faied. Check for error
   }
 }
+
+// Cancel current terminal payment
+HitPay.shared.cancelTerminalPayment { success, error in
+  if success {
+    // Successful cancel payment
+  } else {
+    // Faied. Check for error
+  }
+}
 ```
 
 ### Accept PayNow QR
