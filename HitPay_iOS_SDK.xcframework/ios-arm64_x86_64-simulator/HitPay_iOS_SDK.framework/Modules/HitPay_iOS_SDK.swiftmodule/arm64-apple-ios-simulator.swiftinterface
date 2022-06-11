@@ -1,0 +1,837 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)
+// swift-module-flags: -target arm64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name HitPay_iOS_SDK
+import Foundation
+@_exported import HitPay_iOS_SDK
+import Security
+import StripeTerminal
+import Swift
+import UIKit
+import WebKit
+import _Concurrency
+import os.log
+import os
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) final public class FloatingPanelPanGestureRecognizer : UIKit.UIPanGestureRecognizer {
+  @_Concurrency.MainActor(unsafe) @objc override final public func touchesBegan(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent)
+  @_Concurrency.MainActor(unsafe) @objc override weak final public var delegate: UIKit.UIGestureRecognizerDelegate? {
+    @_Concurrency.MainActor(unsafe) @objc get
+    @_Concurrency.MainActor(unsafe) @objc set
+  }
+  @_Concurrency.MainActor(unsafe) weak final public var delegateProxy: UIKit.UIGestureRecognizerDelegate? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(target: Any?, action: ObjectiveC.Selector?)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(FloatingPanelBackdropView) @_Concurrency.MainActor(unsafe) public class BackdropView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) public var dismissalTapGestureRecognizer: UIKit.UITapGestureRecognizer!
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+public enum SwiftyJSONError : Swift.Int, Swift.Error {
+  case unsupportedType
+  case indexOutOfBounds
+  case elementTooDeep
+  case wrongType
+  case notExist
+  case invalidJSON
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension HitPay_iOS_SDK.SwiftyJSONError : Foundation.CustomNSError {
+  public static var errorDomain: Swift.String {
+    get
+  }
+  public var errorCode: Swift.Int {
+    get
+  }
+  public var errorUserInfo: [Swift.String : Any] {
+    get
+  }
+}
+public enum Type : Swift.Int {
+  case number
+  case string
+  case bool
+  case array
+  case dictionary
+  case null
+  case unknown
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct JSON {
+  public init(data: Foundation.Data, options opt: Foundation.JSONSerialization.ReadingOptions = []) throws
+  public init(_ object: Any)
+  public init(parseJSON jsonString: Swift.String)
+  public mutating func merge(with other: HitPay_iOS_SDK.JSON) throws
+  public func merged(with other: HitPay_iOS_SDK.JSON) throws -> HitPay_iOS_SDK.JSON
+  public var type: HitPay_iOS_SDK.`Type` {
+    get
+  }
+  public var error: HitPay_iOS_SDK.SwiftyJSONError? {
+    get
+  }
+  public var object: Any {
+    get
+    set
+  }
+  @available(*, unavailable, renamed: "null")
+  public static var nullJSON: HitPay_iOS_SDK.JSON {
+    get
+  }
+  public static var null: HitPay_iOS_SDK.JSON {
+    get
+  }
+}
+public enum Index<T> : Swift.Comparable {
+  case array(Swift.Int)
+  case dictionary(Swift.DictionaryIndex<Swift.String, T>)
+  case null
+  public static func == (lhs: HitPay_iOS_SDK.Index<T>, rhs: HitPay_iOS_SDK.Index<T>) -> Swift.Bool
+  public static func < (lhs: HitPay_iOS_SDK.Index<T>, rhs: HitPay_iOS_SDK.Index<T>) -> Swift.Bool
+}
+public typealias JSONIndex = HitPay_iOS_SDK.Index<HitPay_iOS_SDK.JSON>
+public typealias JSONRawIndex = HitPay_iOS_SDK.Index<Any>
+extension HitPay_iOS_SDK.JSON : Swift.Collection {
+  public typealias Index = HitPay_iOS_SDK.JSONRawIndex
+  public var startIndex: HitPay_iOS_SDK.JSON.Index {
+    get
+  }
+  public var endIndex: HitPay_iOS_SDK.JSON.Index {
+    get
+  }
+  public func index(after i: HitPay_iOS_SDK.JSON.Index) -> HitPay_iOS_SDK.JSON.Index
+  public subscript(position: HitPay_iOS_SDK.JSON.Index) -> (Swift.String, HitPay_iOS_SDK.JSON) {
+    get
+  }
+  public typealias Element = (Swift.String, HitPay_iOS_SDK.JSON)
+  public typealias Indices = Swift.DefaultIndices<HitPay_iOS_SDK.JSON>
+  public typealias Iterator = Swift.IndexingIterator<HitPay_iOS_SDK.JSON>
+  public typealias SubSequence = Swift.Slice<HitPay_iOS_SDK.JSON>
+}
+public enum JSONKey {
+  case index(Swift.Int)
+  case key(Swift.String)
+}
+public protocol JSONSubscriptType {
+  var jsonKey: HitPay_iOS_SDK.JSONKey { get }
+}
+extension Swift.Int : HitPay_iOS_SDK.JSONSubscriptType {
+  public var jsonKey: HitPay_iOS_SDK.JSONKey {
+    get
+  }
+}
+extension Swift.String : HitPay_iOS_SDK.JSONSubscriptType {
+  public var jsonKey: HitPay_iOS_SDK.JSONKey {
+    get
+  }
+}
+extension HitPay_iOS_SDK.JSON {
+  public subscript(path: [HitPay_iOS_SDK.JSONSubscriptType]) -> HitPay_iOS_SDK.JSON {
+    get
+    set
+  }
+  public subscript(path: HitPay_iOS_SDK.JSONSubscriptType...) -> HitPay_iOS_SDK.JSON {
+    get
+    set
+  }
+}
+extension HitPay_iOS_SDK.JSON : Swift.ExpressibleByStringLiteral {
+  public init(stringLiteral value: Swift.StringLiteralType)
+  public init(extendedGraphemeClusterLiteral value: Swift.StringLiteralType)
+  public init(unicodeScalarLiteral value: Swift.StringLiteralType)
+  public typealias ExtendedGraphemeClusterLiteralType = Swift.StringLiteralType
+  public typealias StringLiteralType = Swift.StringLiteralType
+  public typealias UnicodeScalarLiteralType = Swift.StringLiteralType
+}
+extension HitPay_iOS_SDK.JSON : Swift.ExpressibleByIntegerLiteral {
+  public init(integerLiteral value: Swift.IntegerLiteralType)
+  public typealias IntegerLiteralType = Swift.IntegerLiteralType
+}
+extension HitPay_iOS_SDK.JSON : Swift.ExpressibleByBooleanLiteral {
+  public init(booleanLiteral value: Swift.BooleanLiteralType)
+  public typealias BooleanLiteralType = Swift.BooleanLiteralType
+}
+extension HitPay_iOS_SDK.JSON : Swift.ExpressibleByFloatLiteral {
+  public init(floatLiteral value: Swift.FloatLiteralType)
+  public typealias FloatLiteralType = Swift.FloatLiteralType
+}
+extension HitPay_iOS_SDK.JSON : Swift.ExpressibleByDictionaryLiteral {
+  public init(dictionaryLiteral elements: (Swift.String, Any)...)
+  public typealias Key = Swift.String
+  public typealias Value = Any
+}
+extension HitPay_iOS_SDK.JSON : Swift.ExpressibleByArrayLiteral {
+  public init(arrayLiteral elements: Any...)
+  public typealias ArrayLiteralElement = Any
+}
+extension HitPay_iOS_SDK.JSON : Swift.RawRepresentable {
+  public init?(rawValue: Any)
+  public var rawValue: Any {
+    get
+  }
+  public func rawData(options opt: Foundation.JSONSerialization.WritingOptions = JSONSerialization.WritingOptions(rawValue: 0)) throws -> Foundation.Data
+  public func rawString(_ encoding: Swift.String.Encoding = .utf8, options opt: Foundation.JSONSerialization.WritingOptions = .prettyPrinted) -> Swift.String?
+  public func rawString(_ options: [HitPay_iOS_SDK.writingOptionsKeys : Any]) -> Swift.String?
+  public typealias RawValue = Any
+}
+extension HitPay_iOS_SDK.JSON : Swift.CustomStringConvertible, Swift.CustomDebugStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+  public var debugDescription: Swift.String {
+    get
+  }
+}
+extension HitPay_iOS_SDK.JSON {
+  public var array: [HitPay_iOS_SDK.JSON]? {
+    get
+  }
+  public var arrayValue: [HitPay_iOS_SDK.JSON] {
+    get
+  }
+  public var arrayObject: [Any]? {
+    get
+    set
+  }
+}
+extension HitPay_iOS_SDK.JSON {
+  public var dictionary: [Swift.String : HitPay_iOS_SDK.JSON]? {
+    get
+  }
+  public var dictionaryValue: [Swift.String : HitPay_iOS_SDK.JSON] {
+    get
+  }
+  public var dictionaryObject: [Swift.String : Any]? {
+    get
+    set
+  }
+}
+extension HitPay_iOS_SDK.JSON {
+  public var bool: Swift.Bool? {
+    get
+    set
+  }
+  public var boolValue: Swift.Bool {
+    get
+    set
+  }
+}
+extension HitPay_iOS_SDK.JSON {
+  public var string: Swift.String? {
+    get
+    set
+  }
+  public var stringValue: Swift.String {
+    get
+    set
+  }
+}
+extension HitPay_iOS_SDK.JSON {
+  public var number: Foundation.NSNumber? {
+    get
+    set
+  }
+  public var numberValue: Foundation.NSNumber {
+    get
+    set
+  }
+}
+extension HitPay_iOS_SDK.JSON {
+  public var null: Foundation.NSNull? {
+    get
+    set
+  }
+  public func exists() -> Swift.Bool
+}
+extension HitPay_iOS_SDK.JSON {
+  public var url: Foundation.URL? {
+    get
+    set
+  }
+}
+extension HitPay_iOS_SDK.JSON {
+  public var double: Swift.Double? {
+    get
+    set
+  }
+  public var doubleValue: Swift.Double {
+    get
+    set
+  }
+  public var float: Swift.Float? {
+    get
+    set
+  }
+  public var floatValue: Swift.Float {
+    get
+    set
+  }
+  public var int: Swift.Int? {
+    get
+    set
+  }
+  public var intValue: Swift.Int {
+    get
+    set
+  }
+  public var uInt: Swift.UInt? {
+    get
+    set
+  }
+  public var uIntValue: Swift.UInt {
+    get
+    set
+  }
+  public var int8: Swift.Int8? {
+    get
+    set
+  }
+  public var int8Value: Swift.Int8 {
+    get
+    set
+  }
+  public var uInt8: Swift.UInt8? {
+    get
+    set
+  }
+  public var uInt8Value: Swift.UInt8 {
+    get
+    set
+  }
+  public var int16: Swift.Int16? {
+    get
+    set
+  }
+  public var int16Value: Swift.Int16 {
+    get
+    set
+  }
+  public var uInt16: Swift.UInt16? {
+    get
+    set
+  }
+  public var uInt16Value: Swift.UInt16 {
+    get
+    set
+  }
+  public var int32: Swift.Int32? {
+    get
+    set
+  }
+  public var int32Value: Swift.Int32 {
+    get
+    set
+  }
+  public var uInt32: Swift.UInt32? {
+    get
+    set
+  }
+  public var uInt32Value: Swift.UInt32 {
+    get
+    set
+  }
+  public var int64: Swift.Int64? {
+    get
+    set
+  }
+  public var int64Value: Swift.Int64 {
+    get
+    set
+  }
+  public var uInt64: Swift.UInt64? {
+    get
+    set
+  }
+  public var uInt64Value: Swift.UInt64 {
+    get
+    set
+  }
+}
+extension HitPay_iOS_SDK.JSON : Swift.Comparable {
+}
+public func == (lhs: HitPay_iOS_SDK.JSON, rhs: HitPay_iOS_SDK.JSON) -> Swift.Bool
+public func <= (lhs: HitPay_iOS_SDK.JSON, rhs: HitPay_iOS_SDK.JSON) -> Swift.Bool
+public func >= (lhs: HitPay_iOS_SDK.JSON, rhs: HitPay_iOS_SDK.JSON) -> Swift.Bool
+public func > (lhs: HitPay_iOS_SDK.JSON, rhs: HitPay_iOS_SDK.JSON) -> Swift.Bool
+public func < (lhs: HitPay_iOS_SDK.JSON, rhs: HitPay_iOS_SDK.JSON) -> Swift.Bool
+public enum writingOptionsKeys {
+  case jsonSerialization
+  case castNilToNSNull
+  case maxObjextDepth
+  case encoding
+  public static func == (a: HitPay_iOS_SDK.writingOptionsKeys, b: HitPay_iOS_SDK.writingOptionsKeys) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension HitPay_iOS_SDK.JSON : Swift.Codable {
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public typealias HitPayAuthenticationListener = () -> Swift.Void
+public typealias HitPayTerminalListener = () -> Swift.Void
+public typealias HitPayTerminalChargeListener = (_ success: Swift.Bool, _ error: Swift.String?) -> Swift.Void
+public typealias HitPayTerminalCancelPaymentListener = (_ success: Swift.Bool, _ error: Swift.String?) -> Swift.Void
+public typealias HitPayPayNowListener = (_ qrCode: Swift.String?, _ qrImage: UIKit.UIImage?, _ success: Swift.Bool, _ error: Swift.String?) -> Swift.Void
+public typealias HitPayRefundListener = (_ success: Swift.Bool, _ error: Swift.String?) -> Swift.Void
+@_hasMissingDesignatedInitializers final public class HitPay {
+  public static let shared: HitPay_iOS_SDK.HitPay
+  final public func setEnv(isProd: Swift.Bool)
+  final public func initiateAuthentication(from vc: UIKit.UIViewController, completion: @escaping HitPay_iOS_SDK.HitPayAuthenticationListener)
+  final public func signOut()
+  final public func initiateTerminalSetup(from vc: UIKit.UIViewController, completion: @escaping HitPay_iOS_SDK.HitPayTerminalListener)
+  final public func cancelTerminalPayment(completion: @escaping HitPay_iOS_SDK.HitPayTerminalCancelPaymentListener)
+  final public func makeTerminalPayment(amount: Swift.Double, currency: Swift.String, completion: @escaping HitPay_iOS_SDK.HitPayTerminalChargeListener)
+  final public func makePayNowPayment(amount: Swift.Double, currency: Swift.String, generateImage: Swift.Bool = false, completion: @escaping HitPay_iOS_SDK.HitPayPayNowListener)
+  final public func refundCharge(charge_id: Swift.String, completion: @escaping HitPay_iOS_SDK.HitPayRefundListener)
+  @objc deinit
+}
+open class KeychainSwift {
+  open var lastResultCode: Darwin.OSStatus
+  open var accessGroup: Swift.String?
+  open var synchronizable: Swift.Bool
+  public init()
+  public init(keyPrefix: Swift.String)
+  @discardableResult
+  open func set(_ value: Swift.String, forKey key: Swift.String, withAccess access: HitPay_iOS_SDK.KeychainSwiftAccessOptions? = nil) -> Swift.Bool
+  @discardableResult
+  open func set(_ value: Foundation.Data, forKey key: Swift.String, withAccess access: HitPay_iOS_SDK.KeychainSwiftAccessOptions? = nil) -> Swift.Bool
+  @discardableResult
+  open func set(_ value: Swift.Bool, forKey key: Swift.String, withAccess access: HitPay_iOS_SDK.KeychainSwiftAccessOptions? = nil) -> Swift.Bool
+  open func get(_ key: Swift.String) -> Swift.String?
+  open func getData(_ key: Swift.String) -> Foundation.Data?
+  open func getBool(_ key: Swift.String) -> Swift.Bool?
+  @discardableResult
+  open func delete(_ key: Swift.String) -> Swift.Bool
+  @discardableResult
+  open func clear() -> Swift.Bool
+  @objc deinit
+}
+extension UIKit.UIView {
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func anchorToSuperviewAnchors(withInsets insets: UIKit.UIEdgeInsets = UIEdgeInsets.zero) -> (top: UIKit.NSLayoutConstraint, leading: UIKit.NSLayoutConstraint, trailing: UIKit.NSLayoutConstraint, bottom: UIKit.NSLayoutConstraint)
+  @_Concurrency.MainActor(unsafe) public func anchor(to layoutGuide: UIKit.UILayoutGuide, withInsets insets: UIKit.UIEdgeInsets = .zero)
+  @_Concurrency.MainActor(unsafe) public func constrainInsideSuperview(withInsets insets: UIKit.UIEdgeInsets = .zero)
+}
+extension UIKit.UISpringTimingParameters {
+  @_Concurrency.MainActor(unsafe) convenience public init(decelerationRate: CoreGraphics.CGFloat, frequencyResponse: CoreGraphics.CGFloat, initialVelocity: CoreGraphics.CGVector = .zero)
+  @_Concurrency.MainActor(unsafe) convenience public init(dampingRatio: CoreGraphics.CGFloat, frequencyResponse: CoreGraphics.CGFloat, initialVelocity: CoreGraphics.CGVector = .zero)
+}
+@_inheritsConvenienceInitializers @objc(FloatingPanelSurfaceAppearance) @objcMembers public class SurfaceAppearance : ObjectiveC.NSObject {
+  @_inheritsConvenienceInitializers @objc(FloatingPanelSurfaceAppearanceShadow) public class Shadow : ObjectiveC.NSObject {
+    @objc public var hidden: Swift.Bool
+    @objc public var color: UIKit.UIColor
+    @objc public var offset: CoreGraphics.CGSize
+    @objc public var opacity: Swift.Float
+    @objc public var radius: CoreGraphics.CGFloat
+    @objc public var spread: CoreGraphics.CGFloat
+    @objc override dynamic public init()
+    @objc deinit
+  }
+  @objc public var backgroundColor: UIKit.UIColor?
+  @objc public var cornerRadius: CoreGraphics.CGFloat
+  @objc @available(iOS 13.0, *)
+  public var cornerCurve: QuartzCore.CALayerCornerCurve {
+    @objc get
+    @objc set
+  }
+  @objc public var shadows: [HitPay_iOS_SDK.SurfaceAppearance.Shadow]
+  @objc public var borderColor: UIKit.UIColor?
+  @objc public var borderWidth: CoreGraphics.CGFloat
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(FloatingPanelSurfaceView) @objcMembers @_Concurrency.MainActor(unsafe) public class SurfaceView : UIKit.UIView {
+  @objc @_Concurrency.MainActor(unsafe) final public let grabberHandle: HitPay_iOS_SDK.GrabberView
+  @objc @_Concurrency.MainActor(unsafe) public var grabberHandlePadding: CoreGraphics.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var grabberAreaOffset: CoreGraphics.CGFloat
+  @objc @_Concurrency.MainActor(unsafe) public var grabberHandleSize: CoreGraphics.CGSize {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) weak public var contentView: UIKit.UIView?
+  @objc @_Concurrency.MainActor(unsafe) public var contentPadding: UIKit.UIEdgeInsets {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var backgroundColor: UIKit.UIColor? {
+    @_Concurrency.MainActor(unsafe) @objc get
+    @_Concurrency.MainActor(unsafe) @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var appearance: HitPay_iOS_SDK.SurfaceAppearance {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var containerMargins: UIKit.UIEdgeInsets {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) final public let containerView: UIKit.UIView
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public class var requiresConstraintBasedLayout: Swift.Bool {
+    @_Concurrency.MainActor(unsafe) @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func updateConstraints()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func layoutSubviews()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var intrinsicContentSize: CoreGraphics.CGSize {
+    @_Concurrency.MainActor(unsafe) @objc get
+  }
+  @objc deinit
+}
+@objc public enum FloatingPanelReferenceEdge : Swift.Int {
+  case top
+  case left
+  case bottom
+  case right
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum FloatingPanelLayoutReferenceGuide : Swift.Int {
+  case superview = 0
+  case safeArea = 1
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public protocol FloatingPanelBehavior {
+  @objc optional var springDecelerationRate: CoreGraphics.CGFloat { get }
+  @objc optional var springResponseTime: CoreGraphics.CGFloat { get }
+  @objc optional var momentumProjectionRate: CoreGraphics.CGFloat { get }
+  @objc optional func shouldProjectMomentum(_ fpc: HitPay_iOS_SDK.FloatingPanelController, to proposedTargetPosition: HitPay_iOS_SDK.FloatingPanelState) -> Swift.Bool
+  @objc optional func redirectionalProgress(_ fpc: HitPay_iOS_SDK.FloatingPanelController, from: HitPay_iOS_SDK.FloatingPanelState, to: HitPay_iOS_SDK.FloatingPanelState) -> CoreGraphics.CGFloat
+  @objc optional func allowsRubberBanding(for edge: UIKit.UIRectEdge) -> Swift.Bool
+  @objc optional var removalInteractionVelocityThreshold: CoreGraphics.CGFloat { get }
+}
+open class FloatingPanelDefaultBehavior : HitPay_iOS_SDK.FloatingPanelBehavior {
+  public init()
+  @objc open var springDecelerationRate: CoreGraphics.CGFloat {
+    @objc get
+  }
+  @objc open var springResponseTime: CoreGraphics.CGFloat {
+    @objc get
+  }
+  @objc open var momentumProjectionRate: CoreGraphics.CGFloat {
+    @objc get
+  }
+  @objc open func redirectionalProgress(_ fpc: HitPay_iOS_SDK.FloatingPanelController, from: HitPay_iOS_SDK.FloatingPanelState, to: HitPay_iOS_SDK.FloatingPanelState) -> CoreGraphics.CGFloat
+  @objc open func allowsRubberBanding(for edge: UIKit.UIRectEdge) -> Swift.Bool
+  @objc open var removalInteractionVelocityThreshold: CoreGraphics.CGFloat
+  @objc deinit
+}
+@objc public protocol FloatingPanelLayout {
+  @objc var position: HitPay_iOS_SDK.FloatingPanelPosition { get }
+  @objc var initialState: HitPay_iOS_SDK.FloatingPanelState { get }
+  @objc var anchors: [HitPay_iOS_SDK.FloatingPanelState : HitPay_iOS_SDK.FloatingPanelLayoutAnchoring] { get }
+  @objc optional func prepareLayout(surfaceView: UIKit.UIView, in view: UIKit.UIView) -> [UIKit.NSLayoutConstraint]
+  @objc optional func backdropAlpha(for state: HitPay_iOS_SDK.FloatingPanelState) -> CoreGraphics.CGFloat
+}
+@objc @_inheritsConvenienceInitializers @objcMembers open class FloatingPanelBottomLayout : ObjectiveC.NSObject, HitPay_iOS_SDK.FloatingPanelLayout {
+  @objc override dynamic public init()
+  @objc open var initialState: HitPay_iOS_SDK.FloatingPanelState {
+    @objc get
+  }
+  @objc open var anchors: [HitPay_iOS_SDK.FloatingPanelState : HitPay_iOS_SDK.FloatingPanelLayoutAnchoring] {
+    @objc get
+  }
+  @objc open var position: HitPay_iOS_SDK.FloatingPanelPosition {
+    @objc get
+  }
+  @objc open func prepareLayout(surfaceView: UIKit.UIView, in view: UIKit.UIView) -> [UIKit.NSLayoutConstraint]
+  @objc open func backdropAlpha(for state: HitPay_iOS_SDK.FloatingPanelState) -> CoreGraphics.CGFloat
+  @objc deinit
+}
+extension StripeTerminal.DeviceType : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+extension StripeTerminal.DiscoveryMethod : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+@objc public protocol FloatingPanelControllerDelegate {
+  @objc(floatingPanel:layoutForTraitCollection:) optional func floatingPanel(_ fpc: HitPay_iOS_SDK.FloatingPanelController, layoutFor newCollection: UIKit.UITraitCollection) -> HitPay_iOS_SDK.FloatingPanelLayout
+  @objc(floatingPanel:layoutForSize:) optional func floatingPanel(_ fpc: HitPay_iOS_SDK.FloatingPanelController, layoutFor size: CoreGraphics.CGSize) -> HitPay_iOS_SDK.FloatingPanelLayout
+  @objc(floatingPanel:animatorForPresentingToState:) optional func floatingPanel(_ fpc: HitPay_iOS_SDK.FloatingPanelController, animatorForPresentingTo state: HitPay_iOS_SDK.FloatingPanelState) -> UIKit.UIViewPropertyAnimator
+  @objc(floatingPanel:animatorForDismissingWithVelocity:) optional func floatingPanel(_ fpc: HitPay_iOS_SDK.FloatingPanelController, animatorForDismissingWith velocity: CoreGraphics.CGVector) -> UIKit.UIViewPropertyAnimator
+  @objc optional func floatingPanelDidChangePosition(_ fpc: HitPay_iOS_SDK.FloatingPanelController)
+  @objc optional func floatingPanelShouldBeginDragging(_ fpc: HitPay_iOS_SDK.FloatingPanelController) -> Swift.Bool
+  @objc optional func floatingPanelDidMove(_ fpc: HitPay_iOS_SDK.FloatingPanelController)
+  @objc optional func floatingPanelWillBeginDragging(_ fpc: HitPay_iOS_SDK.FloatingPanelController)
+  @objc optional func floatingPanelWillEndDragging(_ fpc: HitPay_iOS_SDK.FloatingPanelController, withVelocity velocity: CoreGraphics.CGPoint, targetState: Swift.UnsafeMutablePointer<HitPay_iOS_SDK.FloatingPanelState>)
+  @objc optional func floatingPanelDidEndDragging(_ fpc: HitPay_iOS_SDK.FloatingPanelController, willAttract attract: Swift.Bool)
+  @objc optional func floatingPanelWillBeginAttracting(_ fpc: HitPay_iOS_SDK.FloatingPanelController, to state: HitPay_iOS_SDK.FloatingPanelState)
+  @objc optional func floatingPanelDidEndAttracting(_ fpc: HitPay_iOS_SDK.FloatingPanelController)
+  @objc(floatingPanel:shouldRemoveAtLocation:withVelocity:) optional func floatingPanel(_ fpc: HitPay_iOS_SDK.FloatingPanelController, shouldRemoveAt location: CoreGraphics.CGPoint, with velocity: CoreGraphics.CGVector) -> Swift.Bool
+  @objc(floatingPanelWillRemove:) optional func floatingPanelWillRemove(_ fpc: HitPay_iOS_SDK.FloatingPanelController)
+  @objc optional func floatingPanelDidRemove(_ fpc: HitPay_iOS_SDK.FloatingPanelController)
+  @objc(floatingPanel:contentOffsetForPinningScrollView:) optional func floatingPanel(_ fpc: HitPay_iOS_SDK.FloatingPanelController, contentOffsetForPinning trackingScrollView: UIKit.UIScrollView) -> CoreGraphics.CGPoint
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc @_Concurrency.MainActor(unsafe) open class FloatingPanelController : UIKit.UIViewController {
+  @objc public enum ContentInsetAdjustmentBehavior : Swift.Int {
+    case always
+    case never
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  @objc public enum ContentMode : Swift.Int {
+    case `static`
+    case fitToBounds
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  @objc @_Concurrency.MainActor(unsafe) weak public var delegate: HitPay_iOS_SDK.FloatingPanelControllerDelegate? {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var surfaceView: HitPay_iOS_SDK.SurfaceView! {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var backdropView: HitPay_iOS_SDK.BackdropView! {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor(unsafe) weak public var trackingScrollView: UIKit.UIScrollView? {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var panGestureRecognizer: HitPay_iOS_SDK.FloatingPanelPanGestureRecognizer {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var state: HitPay_iOS_SDK.FloatingPanelState {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var isAttracting: Swift.Bool {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var layout: HitPay_iOS_SDK.FloatingPanelLayout {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var behavior: HitPay_iOS_SDK.FloatingPanelBehavior {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var adjustedContentInsets: UIKit.UIEdgeInsets {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var contentInsetAdjustmentBehavior: HitPay_iOS_SDK.FloatingPanelController.ContentInsetAdjustmentBehavior
+  @objc @_Concurrency.MainActor(unsafe) public var isRemovalInteractionEnabled: Swift.Bool {
+    @objc(isRemovalInteractionEnabled) get
+    @objc(setRemovalInteractionEnabled:) set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var contentViewController: UIKit.UIViewController? {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) public var nearbyState: HitPay_iOS_SDK.FloatingPanelState {
+    get
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var contentMode: HitPay_iOS_SDK.FloatingPanelController.ContentMode {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc @_Concurrency.MainActor(unsafe) public init(delegate: HitPay_iOS_SDK.FloatingPanelControllerDelegate? = nil)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func loadView()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewDidLayoutSubviews()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewWillTransition(to size: CoreGraphics.CGSize, with coordinator: UIKit.UIViewControllerTransitionCoordinator)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func willTransition(to newCollection: UIKit.UITraitCollection, with coordinator: UIKit.UIViewControllerTransitionCoordinator)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewWillDisappear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var childForStatusBarStyle: UIKit.UIViewController? {
+    @_Concurrency.MainActor(unsafe) @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var childForStatusBarHidden: UIKit.UIViewController? {
+    @_Concurrency.MainActor(unsafe) @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var childForScreenEdgesDeferringSystemGestures: UIKit.UIViewController? {
+    @_Concurrency.MainActor(unsafe) @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var childForHomeIndicatorAutoHidden: UIKit.UIViewController? {
+    @_Concurrency.MainActor(unsafe) @objc get
+  }
+  @objc(show:completion:) @_Concurrency.MainActor(unsafe) public func show(animated: Swift.Bool = false, completion: (() -> Swift.Void)? = nil)
+  @objc(hide:completion:) @_Concurrency.MainActor(unsafe) public func hide(animated: Swift.Bool = false, completion: (() -> Swift.Void)? = nil)
+  @objc(addPanelToParent:at:animated:) @_Concurrency.MainActor(unsafe) public func addPanel(toParent parent: UIKit.UIViewController, at viewIndex: Swift.Int = -1, animated: Swift.Bool = false)
+  @objc(removePanelFromParent:completion:) @_Concurrency.MainActor(unsafe) public func removePanelFromParent(animated: Swift.Bool, completion: (() -> Swift.Void)? = nil)
+  @objc(moveToState:animated:completion:) @_Concurrency.MainActor(unsafe) public func move(to: HitPay_iOS_SDK.FloatingPanelState, animated: Swift.Bool, completion: (() -> Swift.Void)? = nil)
+  @_Concurrency.MainActor(unsafe) public func set(contentViewController: UIKit.UIViewController?)
+  @objc(trackScrollView:) @_Concurrency.MainActor(unsafe) public func track(scrollView: UIKit.UIScrollView)
+  @objc(untrackScrollView:) @_Concurrency.MainActor(unsafe) public func untrack(scrollView: UIKit.UIScrollView)
+  @objc override dynamic open func accessibilityPerformEscape() -> Swift.Bool
+  @objc @_Concurrency.MainActor(unsafe) public func invalidateLayout()
+  @objc @_Concurrency.MainActor(unsafe) public func surfaceLocation(for state: HitPay_iOS_SDK.FloatingPanelState) -> CoreGraphics.CGPoint
+  @objc @_Concurrency.MainActor(unsafe) public var surfaceLocation: CoreGraphics.CGPoint {
+    @objc get
+    @objc set
+  }
+  @objc deinit
+}
+extension UIKit.UIViewController {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func fp_original_dismiss(animated flag: Swift.Bool, completion: (() -> Swift.Void)? = nil)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func fp_dismiss(animated flag: Swift.Bool, completion: (() -> Swift.Void)? = nil)
+}
+@_hasMissingDesignatedInitializers @objc(FloatingPanelGrabberView) @_Concurrency.MainActor(unsafe) public class GrabberView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) public var barColor: UIKit.UIColor {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func layoutSubviews()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func hitTest(_ point: CoreGraphics.CGPoint, with event: UIKit.UIEvent?) -> UIKit.UIView?
+  @objc deinit
+}
+@objc public protocol FloatingPanelLayoutAnchoring {
+  @objc var referenceGuide: HitPay_iOS_SDK.FloatingPanelLayoutReferenceGuide { get }
+  @objc func layoutConstraints(_ fpc: HitPay_iOS_SDK.FloatingPanelController, for position: HitPay_iOS_SDK.FloatingPanelPosition) -> [UIKit.NSLayoutConstraint]
+}
+@objc final public class FloatingPanelLayoutAnchor : ObjectiveC.NSObject, HitPay_iOS_SDK.FloatingPanelLayoutAnchoring {
+  @objc public init(absoluteInset: CoreGraphics.CGFloat, edge: HitPay_iOS_SDK.FloatingPanelReferenceEdge, referenceGuide: HitPay_iOS_SDK.FloatingPanelLayoutReferenceGuide)
+  @objc public init(fractionalInset: CoreGraphics.CGFloat, edge: HitPay_iOS_SDK.FloatingPanelReferenceEdge, referenceGuide: HitPay_iOS_SDK.FloatingPanelLayoutReferenceGuide)
+  @objc final public let referenceGuide: HitPay_iOS_SDK.FloatingPanelLayoutReferenceGuide
+  @objc deinit
+}
+extension HitPay_iOS_SDK.FloatingPanelLayoutAnchor {
+  @objc final public func layoutConstraints(_ vc: HitPay_iOS_SDK.FloatingPanelController, for position: HitPay_iOS_SDK.FloatingPanelPosition) -> [UIKit.NSLayoutConstraint]
+}
+@objc final public class FloatingPanelIntrinsicLayoutAnchor : ObjectiveC.NSObject, HitPay_iOS_SDK.FloatingPanelLayoutAnchoring {
+  @objc public init(absoluteOffset offset: CoreGraphics.CGFloat, referenceGuide: HitPay_iOS_SDK.FloatingPanelLayoutReferenceGuide = .safeArea)
+  @objc public init(fractionalOffset offset: CoreGraphics.CGFloat, referenceGuide: HitPay_iOS_SDK.FloatingPanelLayoutReferenceGuide = .safeArea)
+  @objc final public let referenceGuide: HitPay_iOS_SDK.FloatingPanelLayoutReferenceGuide
+  @objc deinit
+}
+extension HitPay_iOS_SDK.FloatingPanelIntrinsicLayoutAnchor {
+  @objc final public func layoutConstraints(_ vc: HitPay_iOS_SDK.FloatingPanelController, for position: HitPay_iOS_SDK.FloatingPanelPosition) -> [UIKit.NSLayoutConstraint]
+}
+@objc final public class FloatingPanelAdaptiveLayoutAnchor : ObjectiveC.NSObject, HitPay_iOS_SDK.FloatingPanelLayoutAnchoring {
+  @objc public init(absoluteOffset offset: CoreGraphics.CGFloat, contentLayout: UIKit.UILayoutGuide, referenceGuide: HitPay_iOS_SDK.FloatingPanelLayoutReferenceGuide = .safeArea)
+  @objc public init(fractionalOffset offset: CoreGraphics.CGFloat, contentLayout: UIKit.UILayoutGuide, referenceGuide: HitPay_iOS_SDK.FloatingPanelLayoutReferenceGuide = .safeArea)
+  @objc final public let referenceGuide: HitPay_iOS_SDK.FloatingPanelLayoutReferenceGuide
+  @objc deinit
+}
+extension HitPay_iOS_SDK.FloatingPanelAdaptiveLayoutAnchor {
+  @objc final public func layoutConstraints(_ vc: HitPay_iOS_SDK.FloatingPanelController, for position: HitPay_iOS_SDK.FloatingPanelPosition) -> [UIKit.NSLayoutConstraint]
+}
+public enum KeychainSwiftAccessOptions {
+  case accessibleWhenUnlocked
+  case accessibleWhenUnlockedThisDeviceOnly
+  case accessibleAfterFirstUnlock
+  case accessibleAfterFirstUnlockThisDeviceOnly
+  case accessibleAlways
+  case accessibleWhenPasscodeSetThisDeviceOnly
+  case accessibleAlwaysThisDeviceOnly
+  public static func == (a: HitPay_iOS_SDK.KeychainSwiftAccessOptions, b: HitPay_iOS_SDK.KeychainSwiftAccessOptions) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@objc public enum FloatingPanelPosition : Swift.Int {
+  case top
+  case left
+  case bottom
+  case right
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct KeychainSwiftConstants {
+  public static var accessGroup: Swift.String {
+    get
+  }
+  public static var accessible: Swift.String {
+    get
+  }
+  public static var attrAccount: Swift.String {
+    get
+  }
+  public static var attrSynchronizable: Swift.String {
+    get
+  }
+  public static var klass: Swift.String {
+    get
+  }
+  public static var matchLimit: Swift.String {
+    get
+  }
+  public static var returnData: Swift.String {
+    get
+  }
+  public static var valueData: Swift.String {
+    get
+  }
+}
+@objc open class FloatingPanelState : ObjectiveC.NSObject, Foundation.NSCopying, Swift.RawRepresentable {
+  public typealias RawValue = Swift.String
+  required public init?(rawValue: HitPay_iOS_SDK.FloatingPanelState.RawValue)
+  @objc public init(rawValue: HitPay_iOS_SDK.FloatingPanelState.RawValue, order: Swift.Int)
+  final public let rawValue: HitPay_iOS_SDK.FloatingPanelState.RawValue
+  final public let order: Swift.Int
+  @objc public func copy(with zone: ObjectiveC.NSZone? = nil) -> Any
+  @objc override dynamic public var description: Swift.String {
+    @objc get
+  }
+  @objc override dynamic public var debugDescription: Swift.String {
+    @objc get
+  }
+  @objc(Full) public static let full: HitPay_iOS_SDK.FloatingPanelState
+  @objc(Half) public static let half: HitPay_iOS_SDK.FloatingPanelState
+  @objc(Tip) public static let tip: HitPay_iOS_SDK.FloatingPanelState
+  @objc(Hidden) public static let hidden: HitPay_iOS_SDK.FloatingPanelState
+  @objc deinit
+}
+extension StripeTerminal.DeviceType : Swift.Codable {
+}
+extension StripeTerminal.DiscoveryMethod : Swift.Codable {
+}
+extension HitPay_iOS_SDK.SwiftyJSONError : Swift.Equatable {}
+extension HitPay_iOS_SDK.SwiftyJSONError : Swift.Hashable {}
+extension HitPay_iOS_SDK.SwiftyJSONError : Swift.RawRepresentable {}
+extension HitPay_iOS_SDK.`Type` : Swift.Equatable {}
+extension HitPay_iOS_SDK.`Type` : Swift.Hashable {}
+extension HitPay_iOS_SDK.`Type` : Swift.RawRepresentable {}
+extension HitPay_iOS_SDK.writingOptionsKeys : Swift.Equatable {}
+extension HitPay_iOS_SDK.writingOptionsKeys : Swift.Hashable {}
+extension HitPay_iOS_SDK.FloatingPanelReferenceEdge : Swift.Equatable {}
+extension HitPay_iOS_SDK.FloatingPanelReferenceEdge : Swift.Hashable {}
+extension HitPay_iOS_SDK.FloatingPanelReferenceEdge : Swift.RawRepresentable {}
+extension HitPay_iOS_SDK.FloatingPanelLayoutReferenceGuide : Swift.Equatable {}
+extension HitPay_iOS_SDK.FloatingPanelLayoutReferenceGuide : Swift.Hashable {}
+extension HitPay_iOS_SDK.FloatingPanelLayoutReferenceGuide : Swift.RawRepresentable {}
+extension HitPay_iOS_SDK.FloatingPanelController.ContentInsetAdjustmentBehavior : Swift.Equatable {}
+extension HitPay_iOS_SDK.FloatingPanelController.ContentInsetAdjustmentBehavior : Swift.Hashable {}
+extension HitPay_iOS_SDK.FloatingPanelController.ContentInsetAdjustmentBehavior : Swift.RawRepresentable {}
+extension HitPay_iOS_SDK.FloatingPanelController.ContentMode : Swift.Equatable {}
+extension HitPay_iOS_SDK.FloatingPanelController.ContentMode : Swift.Hashable {}
+extension HitPay_iOS_SDK.FloatingPanelController.ContentMode : Swift.RawRepresentable {}
+extension HitPay_iOS_SDK.KeychainSwiftAccessOptions : Swift.Equatable {}
+extension HitPay_iOS_SDK.KeychainSwiftAccessOptions : Swift.Hashable {}
+extension HitPay_iOS_SDK.FloatingPanelPosition : Swift.Equatable {}
+extension HitPay_iOS_SDK.FloatingPanelPosition : Swift.Hashable {}
+extension HitPay_iOS_SDK.FloatingPanelPosition : Swift.RawRepresentable {}

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HitPay-iOS-SDK'
-  s.version          = '0.1.5'
+  s.version          = '0.1.6'
   s.summary          = 'HitPay-iOS-SDK.'
 
 # This description is used to generate tags and improve search results.
@@ -33,5 +33,5 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target  = '11.0'
 
   s.vendored_frameworks = 'HitPay-iOS-SDK/HitPay_iOS_SDK.xcframework'
-  s.dependency 'StripeTerminal', '~> 2.0'
+  s.dependency 'StripeTerminal', '2.1.1'
 end
