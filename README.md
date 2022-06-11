@@ -53,9 +53,6 @@ HitPay.shared.signOut()
 ### **Connect Card Reader**
 
 ```swift
-// Enable to disable terminal simulation.
-HitPay.shared.setTerminal(simulated: false)
-
 HitPay.shared.initiateTerminalSetup(from: self) { [weak self] in
   // Setup completed
 }
