@@ -32,6 +32,6 @@ TODO: Add long description of the pod here.
   s.swift_version = '5.0'
   s.ios.deployment_target  = '11.0'
 
-  s.vendored_frameworks = 'HitPay-iOS-SDK/HitPay_iOS_SDK.xcframework'
+  s.vendored_frameworks = 'xcframework_sdk/HitPay_iOS_SDK.xcframework'
   s.dependency 'StripeTerminal', '2.1.1'
 end
