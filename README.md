@@ -1,4 +1,6 @@
-# HitPay iOS SDK (Point-Of-Sale Only)
+# NOTE: This repo is deprecated. Please use the new [REST APIs](https://docs.hitpayapp.com/docs/in-person-payments)
+
+## HitPay iOS SDK (Point-Of-Sale Only)
 
 [![CI Status](https://img.shields.io/travis/tuannguyenanh177/HitPay-iOS-SDK.svg?style=flat)](https://travis-ci.org/tuannguyenanh177/HitPay-iOS-SDK)
 [![Version](https://img.shields.io/cocoapods/v/HitPay-iOS-SDK.svg?style=flat)](https://cocoapods.org/pods/HitPay-iOS-SDK)
